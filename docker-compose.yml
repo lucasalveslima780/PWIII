@@ -13,7 +13,10 @@ services:
     environment:
       - PMA_ARBITRARY=1
   web:
-    image: nginx
+    build:
+      context: ./containers/fzl-nginx
+      dockerfile: Dockerfile
+      container_name: nginx
     ports:
       - "80:80"
     volumes:
