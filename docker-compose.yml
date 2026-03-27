@@ -24,7 +24,12 @@ services:
       - ./nginx:/etc/nginx/conf.d
 
   php-fpm:
-    image: php:8.3-fpm
+    build:
+      context: ./
+      dockerfile: Dockerfile-Php8-Fpm
     container_name: fzl-php8.3-fpm
     volumes:
-      - ./Meu_Front:/var/www/html
+      - ./:/var/www/html
+
+
+      
